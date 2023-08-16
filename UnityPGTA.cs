@@ -45,6 +45,7 @@ public class UnityPGTA : Agent
     public bool horizontal = false;
     public bool vertical = false;
     public float threshold = 0.1f;
+    public int endStep = 10000;
     private InputSimulator inputSim;
     private float startTime;
     private float elapsedTime;
@@ -96,18 +97,13 @@ public class UnityPGTA : Agent
             EndEpisode();
         }
         */
-        /*
-        if (StepCount > 10000)
+        
+        if (StepCount > endStep)
         {
-            float elapsedTime = Time.time - startTime;
-            report.elapsed_time = elapsedTime;
-            Debug.Log("Time elapsed: " + elapsedTime.ToString("F2") + " seconds");
-            
             EndEpisode();
             EditorApplication.isPlaying = false;
-
         }
-        */
+        
     }
     
     public override void OnActionReceived(ActionBuffers recivedActions)
@@ -218,6 +214,7 @@ public class UnityPGTA : Agent
                 return;
             }
             AddReward(10.0f);
+            Debug.Log("unique error");
             report.unique_error_count++;
             
             
