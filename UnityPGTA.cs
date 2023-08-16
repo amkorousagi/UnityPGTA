@@ -203,24 +203,25 @@ public class UnityPGTA : Agent
         // Check if this is an error message
         if (logType == LogType.Error || logType == LogType.Exception)
         {
-            report.error_count++;
-            
-            
-            report.errors.Add(stackTrace);
-            report.error_types.Add(logString);
-            report.error_steps.Add(StepCount);
             if (report.errors.Contains(stackTrace))
             {
+                report.error_count++;
+                report.errors.Add(stackTrace);
+                report.error_types.Add(logString);
+                report.error_steps.Add(StepCount);
                 return;
+            }else{
+                report.error_count++;
+                report.errors.Add(stackTrace);
+                report.error_types.Add(logString);
+                report.error_steps.Add(StepCount);
+                AddReward(10.0f);
+                Debug.Log("unique error");
+                report.unique_error_count++;
+                report.unique_errors.Add(stackTrace);
+                report.unique_error_types.Add(logString);
+                report.unique_error_steps.Add(StepCount);
             }
-            AddReward(10.0f);
-            Debug.Log("unique error");
-            report.unique_error_count++;
-            
-            
-            report.unique_errors.Add(stackTrace);
-            report.unique_error_types.Add(logString);
-            report.unique_error_steps.Add(StepCount);
         }else if(logType == LogType.Warning)
         {
             report.warning_count++;
@@ -228,10 +229,7 @@ public class UnityPGTA : Agent
             report.warnings.Add(stackTrace);
             report.warning_types.Add(logString);
             report.warning_steps.Add(StepCount);
-            if (report.errors.Contains(stackTrace))
-            {
-                return;
-            }
+           
         }
         // 처음 찾은 오류면 보상 부여
         // 이미 찾은 오류면 보상 안줌
