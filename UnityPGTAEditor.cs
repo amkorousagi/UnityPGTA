@@ -50,7 +50,7 @@ public class UnityPGTAEditor : Editor
         List<WindowsInput.Native.VirtualKeyCode> actions = new List<WindowsInput.Native.VirtualKeyCode>();
         int actionCnt = 0;
 
-        string assetsFolderPath = "Assets/Scripts"; //UnityEngine.Application.dataPath;
+        string assetsFolderPath = unityPGTA.scriptPath; //UnityEngine.Application.dataPath;
         List<string> csFilePaths = GetAllCSFilePaths(assetsFolderPath);
 
         foreach (string scriptFilePath in csFilePaths)

@@ -17,6 +17,10 @@ using Unity.Barracuda;
 public class Report
 {
     public float elapsed_time;
+    public int unique_error_count=0;
+    public List<string> unique_errors;
+    public List<string> unique_error_types;
+    public List<int> unique_error_steps;
     public int error_count=0;
     public int warning_count = 0;
     public List<string> errors;
@@ -34,6 +38,7 @@ public class UnityPGTA : Agent
     public GameObject[] observations;
     public Transform rb;
     public UnityEngine.Vector3 prior;
+    public string scriptPath = "Assets/Scripts";
     public float delayInSeconds = 10.0f;
     public bool horizontal = false;
     public bool vertical = false;
@@ -47,17 +52,18 @@ public class UnityPGTA : Agent
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        startTime = Time.time;
     }
 
     // Start is called before the first frame update
     void Awake()
     {
+        ea = false;
         Invoke("EnableAgentBehavior", 10.0f);
         Application.logMessageReceived += HandleLogMessage;
         inputSim = new InputSimulator();
         rb = GetComponent<Transform>();
         
-        startTime = Time.time;
 
     }
     private void EnableAgentBehavior()
@@ -206,6 +212,12 @@ public class UnityPGTA : Agent
                 return;
             }
             AddReward(10.0f);
+            report.unique_error_count++;
+            
+            
+            report.unique_errors.Add(stackTrace);
+            report.unique_error_types.Add(logString);
+            report.unique_error_steps.Add(StepCount);
         }else if(logType == LogType.Warning)
         {
             report.warning_count++;
