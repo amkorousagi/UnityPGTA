@@ -31,6 +31,7 @@ public class Report
     public List<string> warnings;
     public List<string> warning_types;
     public List<int> warning_steps;
+    public List<string> unique_set;
 }
 
 public class UnityPGTA : Agent
@@ -51,7 +52,6 @@ public class UnityPGTA : Agent
     private float elapsedTime;
     private bool ea = false;
     private DateTime startDateTime;
-    private List<string> unique_set;
 
 
     [SerializeField] private Report report;
@@ -204,7 +204,7 @@ public class UnityPGTA : Agent
         // Check if this is an error message
         if (logType == LogType.Error || logType == LogType.Exception)
         {
-            if (unique_set.Contains(logString + stackTrace))
+            if (report.unique_set.Contains(logString + stackTrace))
             {
                 report.error_count++;
                 report.errors.Add(stackTrace);
@@ -212,7 +212,7 @@ public class UnityPGTA : Agent
                 report.error_steps.Add(StepCount);
                 return;
             }else{
-                unique_set.Add(logString + stackTrace);
+                report.unique_set.Add(logString + stackTrace);
                 report.error_count++;
                 report.errors.Add(stackTrace);
                 report.error_types.Add(logString);
