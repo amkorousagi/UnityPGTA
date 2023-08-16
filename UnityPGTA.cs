@@ -12,10 +12,12 @@ using JetBrains.Annotations;
 using UnityEditor;
 using Unity.MLAgents.Policies;
 using Unity.Barracuda;
+using System;
 
 [System.Serializable]
 public class Report
 {
+    public string real_time;
     public float elapsed_time;
     public int unique_error_count=0;
     public List<string> unique_errors;
@@ -45,7 +47,9 @@ public class UnityPGTA : Agent
     public float threshold = 0.1f;
     private InputSimulator inputSim;
     private float startTime;
+    private float elapsedTime;
     private bool ea = false;
+    private DateTime startDateTime;
 
 
     [SerializeField] private Report report;
@@ -53,6 +57,7 @@ public class UnityPGTA : Agent
     {
         DontDestroyOnLoad(gameObject);
         startTime = Time.time;
+        startDateTime = DateTime.Now;
     }
 
     // Start is called before the first frame update
@@ -81,6 +86,7 @@ public class UnityPGTA : Agent
             AddReward(-1f);
         }
         prior = rb.position;
+        elapsedTime = Time.time - starTime;
         // AddReward(-0.001f);
         /*
         if (StepCount > 500)
@@ -237,8 +243,10 @@ public class UnityPGTA : Agent
 
     private void OnDestroy()
     {
-        float elapsedTime = Time.time - startTime;
+        TimeSpan elapsedDateTime = DateTime.Now - startDateTime;
+        report.real_time =  elapsedDateTime.TotalSeconds.ToString("F2");
         report.elapsed_time = elapsedTime;
+        Debug.Log("DateTime elapsed: " + elapsedDateTime.TotalSeconds.ToString("F2") + " seconds");
         Debug.Log("Time elapsed: " + elapsedTime.ToString("F2") + " seconds");
         string filePath = Application.dataPath + "/bug_report"+ System.DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".json";
         // Write your quitting log to the file
