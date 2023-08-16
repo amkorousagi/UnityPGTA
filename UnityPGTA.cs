@@ -114,7 +114,7 @@ public class UnityPGTA : Agent
             if(horizontal)
             {
                 float horizontalInput = recivedActions.ContinuousActions[0];
-                Debug.Log(horizontalInput);
+                //Debug.Log(horizontalInput);
                 if(horizontalInput > threshold)
                 {
                     Debug.Log("right");
@@ -133,7 +133,7 @@ public class UnityPGTA : Agent
             if(vertical)
             {
                 float verticalInput = recivedActions.ContinuousActions[1];
-                Debug.Log(verticalInput);
+                //Debug.Log(verticalInput);
                 if (verticalInput > threshold)
                 {
                     Debug.Log("front");
@@ -156,10 +156,11 @@ public class UnityPGTA : Agent
                 switch (recivedActions.DiscreteActions[i])
                 {
                     case 0:
+                        Debug.Log(actions[i] + " off"); // up
                         break;
                     case 1:
-                        Debug.Log(actions[i]);
-                        inputSim.Keyboard.KeyPress(actions[i]);
+                        Debug.Log(actions[i] + " on");
+                        inputSim.Keyboard.KeyPress(actions[i]); // down
                         break;
                 }
             }
