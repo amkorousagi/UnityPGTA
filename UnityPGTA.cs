@@ -86,7 +86,7 @@ public class UnityPGTA : Agent
             AddReward(-1f);
         }
         prior = rb.position;
-        elapsedTime = Time.time - starTime;
+        elapsedTime = Time.time - startTime;
         // AddReward(-0.001f);
         /*
         if (StepCount > 500)
