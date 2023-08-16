@@ -1,0 +1,115 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using WindowsInput;
+using WindowsInput.Native;
+public class ConvertKeyCode2VK : MonoBehaviour
+{
+    public static WindowsInput.Native.VirtualKeyCode ConvertK2VK(UnityEngine.KeyCode k)
+    {
+        switch(k)
+        {
+            case KeyCode.A: return VirtualKeyCode.VK_A;
+            case KeyCode.B: return VirtualKeyCode.VK_B;
+            case KeyCode.C: return VirtualKeyCode.VK_C;
+            case KeyCode.D: return VirtualKeyCode.VK_D;
+            case KeyCode.E: return VirtualKeyCode.VK_E;
+            case KeyCode.F: return VirtualKeyCode.VK_F;
+            case KeyCode.G: return VirtualKeyCode.VK_G;
+            case KeyCode.H: return VirtualKeyCode.VK_H;
+            case KeyCode.I: return VirtualKeyCode.VK_I;
+            case KeyCode.J: return VirtualKeyCode.VK_J;
+            case KeyCode.K: return VirtualKeyCode.VK_K;
+            case KeyCode.L: return VirtualKeyCode.VK_L;
+            case KeyCode.M: return VirtualKeyCode.VK_M;
+            case KeyCode.N: return VirtualKeyCode.VK_N;
+            case KeyCode.O: return VirtualKeyCode.VK_O;
+            case KeyCode.P: return VirtualKeyCode.VK_P;
+            case KeyCode.Q: return VirtualKeyCode.VK_Q;
+            case KeyCode.R: return VirtualKeyCode.VK_R;
+            case KeyCode.S: return VirtualKeyCode.VK_S;
+            case KeyCode.T: return VirtualKeyCode.VK_T;
+            case KeyCode.U: return VirtualKeyCode.VK_U;
+            case KeyCode.V: return VirtualKeyCode.VK_V;
+            case KeyCode.W: return VirtualKeyCode.VK_W;
+            case KeyCode.X: return VirtualKeyCode.VK_X;
+            case KeyCode.Y: return VirtualKeyCode.VK_Y;
+            case KeyCode.Z: return VirtualKeyCode.VK_Z;
+            case KeyCode.Alpha0: return VirtualKeyCode.VK_0;
+            case KeyCode.Alpha1: return VirtualKeyCode.VK_1;
+            case KeyCode.Alpha2: return VirtualKeyCode.VK_2;
+            case KeyCode.Alpha3: return VirtualKeyCode.VK_3;
+            case KeyCode.Alpha4: return VirtualKeyCode.VK_4;
+            case KeyCode.Alpha5: return VirtualKeyCode.VK_5;
+            case KeyCode.Alpha6: return VirtualKeyCode.VK_6;
+            case KeyCode.Alpha7: return VirtualKeyCode.VK_7;
+            case KeyCode.Alpha8: return VirtualKeyCode.VK_8;
+            case KeyCode.Alpha9: return VirtualKeyCode.VK_9;
+            case KeyCode.Keypad0: return VirtualKeyCode.NUMPAD0;
+            case KeyCode.Keypad1: return VirtualKeyCode.NUMPAD1;
+            case KeyCode.Keypad2: return VirtualKeyCode.NUMPAD2;
+            case KeyCode.Keypad3: return VirtualKeyCode.NUMPAD3;
+            case KeyCode.Keypad4: return VirtualKeyCode.NUMPAD4;
+            case KeyCode.Keypad5: return VirtualKeyCode.NUMPAD5;
+            case KeyCode.Keypad6: return VirtualKeyCode.NUMPAD6;
+            case KeyCode.Keypad7: return VirtualKeyCode.NUMPAD7;
+            case KeyCode.Keypad8: return VirtualKeyCode.NUMPAD8;
+            case KeyCode.Keypad9: return VirtualKeyCode.NUMPAD9;
+            case KeyCode.F1: return VirtualKeyCode.F1;
+            case KeyCode.F2: return VirtualKeyCode.F2;
+            case KeyCode.F3: return VirtualKeyCode.F3;
+            case KeyCode.F4: return VirtualKeyCode.F4;
+            case KeyCode.F5: return VirtualKeyCode.F5;
+            case KeyCode.F6: return VirtualKeyCode.F6;
+            case KeyCode.F7: return VirtualKeyCode.F7;
+            case KeyCode.F8: return VirtualKeyCode.F8;
+            case KeyCode.F9: return VirtualKeyCode.F9;
+            case KeyCode.F10: return VirtualKeyCode.F10;
+            case KeyCode.F11: return VirtualKeyCode.F11;
+            case KeyCode.F12: return VirtualKeyCode.F12;
+            case KeyCode.Space: return VirtualKeyCode.SPACE;
+            case KeyCode.Return: return VirtualKeyCode.RETURN;
+            case KeyCode.Escape: return VirtualKeyCode.ESCAPE;
+            case KeyCode.Tab: return VirtualKeyCode.TAB;
+            case KeyCode.CapsLock: return VirtualKeyCode.CAPITAL;
+            case KeyCode.LeftShift: return VirtualKeyCode.LSHIFT;
+            case KeyCode.RightShift: return VirtualKeyCode.RSHIFT;
+            case KeyCode.LeftControl: return VirtualKeyCode.LCONTROL;
+            case KeyCode.RightControl: return VirtualKeyCode.RCONTROL;
+            case KeyCode.LeftAlt: return VirtualKeyCode.LMENU;
+            case KeyCode.RightAlt: return VirtualKeyCode.RMENU;
+            case KeyCode.LeftArrow: return VirtualKeyCode.LEFT;
+            case KeyCode.RightArrow: return VirtualKeyCode.RIGHT;
+            case KeyCode.UpArrow: return VirtualKeyCode.UP;
+            case KeyCode.DownArrow: return VirtualKeyCode.DOWN;
+            case KeyCode.Backspace: return VirtualKeyCode.BACK;
+            case KeyCode.Delete: return VirtualKeyCode.DELETE;
+            case KeyCode.Insert: return VirtualKeyCode.INSERT;
+            case KeyCode.Home: return VirtualKeyCode.HOME;
+            case KeyCode.End: return VirtualKeyCode.END;
+            case KeyCode.PageUp: return VirtualKeyCode.PRIOR;
+            case KeyCode.PageDown: return VirtualKeyCode.NEXT;
+            case KeyCode.KeypadDivide: return VirtualKeyCode.DIVIDE;
+            case KeyCode.KeypadMultiply: return VirtualKeyCode.MULTIPLY;
+            case KeyCode.KeypadMinus: return VirtualKeyCode.SUBTRACT;
+            case KeyCode.KeypadPlus: return VirtualKeyCode.ADD;
+            case KeyCode.KeypadEnter: return VirtualKeyCode.RETURN;
+            case KeyCode.KeypadPeriod: return VirtualKeyCode.DECIMAL;
+            case KeyCode.Numlock: return VirtualKeyCode.NUMLOCK;
+            case KeyCode.ScrollLock: return VirtualKeyCode.SCROLL;
+            case KeyCode.Print: return VirtualKeyCode.SNAPSHOT;
+            case KeyCode.Pause: return VirtualKeyCode.PAUSE;
+            case KeyCode.LeftBracket: return VirtualKeyCode.OEM_4;
+            case KeyCode.RightBracket: return VirtualKeyCode.OEM_6;
+            case KeyCode.BackQuote: return VirtualKeyCode.OEM_3;
+            case KeyCode.Semicolon: return VirtualKeyCode.OEM_1;
+            case KeyCode.Quote: return VirtualKeyCode.OEM_7;
+            case KeyCode.Comma: return VirtualKeyCode.OEM_COMMA;
+            case KeyCode.Period: return VirtualKeyCode.OEM_PERIOD;
+            case KeyCode.Slash: return VirtualKeyCode.OEM_2;
+            case KeyCode.Backslash: return VirtualKeyCode.OEM_5;
+            // Add more cases for other key codes
+            default: return VirtualKeyCode.SPACE;
+        }
+    }
+}
