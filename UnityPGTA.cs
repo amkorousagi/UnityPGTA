@@ -83,12 +83,14 @@ public class UnityPGTA : Agent
     // Update is called once per frame
     void FixedUpdate()
     {
+        /*
         if (UnityEngine.Vector3.Equals(rb.position, prior))
         {
             AddReward(-1f);
         }
         prior = rb.position;
         elapsedTime = Time.time - startTime;
+        */
         // AddReward(-0.001f);
         /*
         if (StepCount > 500)
