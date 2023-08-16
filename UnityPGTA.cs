@@ -31,7 +31,7 @@ public class Report
     public List<string> warnings;
     public List<string> warning_types;
     public List<int> warning_steps;
-    public List<string> unique_set;
+    private List<string> unique_set;
 }
 
 public class UnityPGTA : Agent
