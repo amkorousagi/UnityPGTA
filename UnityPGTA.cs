@@ -212,6 +212,7 @@ public class UnityPGTA : Agent
                 report.error_steps.Add(StepCount);
                 return;
             }else{
+                report.unique_set.Add(logString + stackTrace);
                 report.error_count++;
                 report.errors.Add(stackTrace);
                 report.error_types.Add(logString);
