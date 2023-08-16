@@ -114,11 +114,14 @@ public class UnityPGTA : Agent
             if(horizontal)
             {
                 float horizontalInput = recivedActions.ContinuousActions[0];
+                Debug.Log(horizontalInput);
                 if(horizontalInput > threshold)
                 {
+                    Debug.Log("right");
                     inputSim.Keyboard.KeyDown(WindowsInput.Native.VirtualKeyCode.VK_D);
                 }else if(horizontalInput < -threshold)
                 {
+                    Debug.Log("left");
                     inputSim.Keyboard.KeyDown(WindowsInput.Native.VirtualKeyCode.VK_A);
                 }
                 else
@@ -130,12 +133,15 @@ public class UnityPGTA : Agent
             if(vertical)
             {
                 float verticalInput = recivedActions.ContinuousActions[1];
+                Debug.Log(verticalInput);
                 if (verticalInput > threshold)
                 {
+                    Debug.Log("front");
                     inputSim.Keyboard.KeyDown(WindowsInput.Native.VirtualKeyCode.VK_W);
                 }
                 else if (verticalInput < -threshold)
                 {
+                    Debug.Log("back");
                     inputSim.Keyboard.KeyDown(WindowsInput.Native.VirtualKeyCode.VK_S);
                 }
                 else
